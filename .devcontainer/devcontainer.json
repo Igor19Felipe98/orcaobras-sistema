@@ -1,0 +1,32 @@
+
+{
+  "name": "OrçaObras - Codespaces",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-18-bullseye",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "nodeGVSVersion": "18"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode.vscode-typescript-next",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "OrçaObras App",
+      "onAutoForward": "notify"
+    }
+  },
+
+  "postCreateCommand": "npm install && npx prisma generate && npx prisma db push",
+  "postStartCommand": "npm run dev"
+}
